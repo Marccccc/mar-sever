@@ -31,9 +31,11 @@ subprojects {
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
+        compile group: 'org.apache.shiro', name: 'shiro-spring-boot-starter',version:'1.4.0'
         compile group: 'com.baomidou', name: 'mybatis-plus',version:'2.1-gamma'
         compile group: 'mysql', name: 'mysql-connector-java',version:'6.0.6'
         compile group: 'com.baomidou', name: 'mybatisplus-spring-boot-starter',version:'1.0.4'
+        compileOnly group: 'org.projectlombok', name: 'lombok',version:'1.16.18'
         runtime group: 'com.h2database',name: 'h2'
         testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     }

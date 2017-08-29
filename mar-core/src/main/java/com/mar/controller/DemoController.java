@@ -13,7 +13,8 @@ import java.util.List;
 @RestController
 public class DemoController {
 
-    private @Autowired UserDao userDao;
+    private @Autowired
+    UserDao userDao;
 
     @RequestMapping(value = "test",method = RequestMethod.GET)
     public List<User> test(){
