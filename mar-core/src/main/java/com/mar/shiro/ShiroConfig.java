@@ -4,6 +4,12 @@ import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
 import org.apache.shiro.session.mgt.DefaultSessionManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.util.ClassUtils;
+import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.apache.shiro.web.filter.authz.RolesAuthorizationFilter;
+import org.apache.shiro.web.filter.mgt.DefaultFilter;
+import org.apache.shiro.web.filter.mgt.DefaultFilterChainManager;
+import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.mgt.DefaultWebSubjectFactory;
 import org.springframework.context.annotation.Bean;
@@ -73,8 +79,10 @@ public class ShiroConfig {
         factoryBean.getFilters().put("authControlFilter", authControlFilter());
         //拦截器.
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
-        filterChainDefinitionMap.put("/*", "authControlFilter");
+        filterChainDefinitionMap.put("/session", "anon");
+        filterChainDefinitionMap.put("/**", "authControlFilter");
         factoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+
         return factoryBean;
     }
 

@@ -37,6 +37,8 @@ public class TokenServiceImpl implements TokenService {
     public User getUserByToken(String tokenId) {
         Token token=tokenDao.selectById(tokenId);
         User user=userService.getUser(token.getUserId());
+       // user.setAccount("3");
+        //user.setPassword("4");
         return user;
     }
 

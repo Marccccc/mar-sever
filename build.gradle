@@ -31,6 +31,7 @@ subprojects {
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
         compile group: 'org.apache.shiro', name: 'shiro-spring-boot-starter',version:'1.4.0'
         compile group: 'com.baomidou', name: 'mybatis-plus',version:'2.1-gamma'
         compile group: 'mysql', name: 'mysql-connector-java',version:'6.0.6'
