@@ -31,7 +31,7 @@ public class BusinessRealm extends AuthorizingRealm {
 
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         StatelessToken statelessToken = (StatelessToken) token;
-        String tokenId = statelessToken.getUsername();
+        String tokenId = statelessToken.getTokenId();
         User user=tokenService.getUserByToken(tokenId);
         //在服务器端生成客户端参数消息摘要
         // String serverDigest = HmacSHA256Utils.digest(key, statelessToken.getParams());

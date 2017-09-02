@@ -1,10 +1,14 @@
-package com.mar.shiro;
+package com.mar.config;
 
+import com.mar.shiro.BusinessRealm;
+import com.mar.shiro.StatelessAuthcFilter;
+import com.mar.shiro.StatelessDefaultSubjectFactory;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
 import org.apache.shiro.session.mgt.DefaultSessionManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.util.ClassUtils;
+import org.apache.shiro.web.filter.authc.AnonymousFilter;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.filter.authz.RolesAuthorizationFilter;
 import org.apache.shiro.web.filter.mgt.DefaultFilter;
@@ -76,25 +80,13 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilter() {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
         factoryBean.setSecurityManager(securityManager());
-        factoryBean.getFilters().put("authControlFilter", authControlFilter());
+        factoryBean.getFilters().put("authControlFilter",new StatelessAuthcFilter());
         //拦截器.
-        Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
+        Map<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
         filterChainDefinitionMap.put("/session", "anon");
         filterChainDefinitionMap.put("/**", "authControlFilter");
         factoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
-
         return factoryBean;
     }
 
-
-    /**
-     * Add.4.1
-     * 访问控制器.
-     * @return
-     */
-    @Bean
-    public StatelessAuthcFilter authControlFilter(){
-        StatelessAuthcFilter authControlFilter = new StatelessAuthcFilter();
-        return authControlFilter;
-    }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-@RestController("session")
+@RestController
 public class SessionController {
 	
 	@Resource
@@ -19,7 +19,7 @@ public class SessionController {
 	 * @param user
 	 * @return
 	 */
-	@RequestMapping(method= RequestMethod.POST)
+	@RequestMapping(value = "/session",method= RequestMethod.POST)
 	public Response login(@RequestBody User user){
         Token token=tokenService.getByLogin(user.getAccount(),user.getPassword());
 		Response reponse=new Response().success(token);
@@ -42,7 +42,7 @@ public class SessionController {
 	 * @param tokenId
 	 * @return
 	 */
-	@RequestMapping(value = "/{tokenId}",method= RequestMethod.DELETE)
+	@RequestMapping(value = "/session",method= RequestMethod.DELETE)
 	public Response logout(@PathVariable String tokenId){
 		tokenService.destoryTokenById(tokenId);
 		Response reponse=new Response().success();
