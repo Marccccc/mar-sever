@@ -28,16 +28,27 @@ subprojects {
     repositories {
         mavenCentral()
     }
+    dependencyManagement {
+        applyMavenExclusions false
+    }
+    configurations{
+        all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2'
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
         compile group: 'org.apache.shiro', name: 'shiro-spring-boot-starter',version:'1.4.0'
-        compile group: 'com.baomidou', name: 'mybatis-plus',version:'2.1-gamma'
+        compile group: 'com.github.pagehelper' , name:'pagehelper-spring-boot-starter',version: '1.2.0'
+        compile group: 'com.baomidou', name: 'mybatis-plus',version:'2.1.0'
+        compile group: 'org.apache.velocity', name: 'velocity',version:'1.7'
         compile group: 'mysql', name: 'mysql-connector-java',version:'6.0.6'
         compile group: 'com.baomidou', name: 'mybatisplus-spring-boot-starter',version:'1.0.4'
+        compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml',version:'2.9.0'
+        compile group: 'org.apache.logging.log4j', name: 'log4j-web',version:'2.7'
         compileOnly group: 'org.projectlombok', name: 'lombok',version:'1.16.18'
-        runtime group: 'com.h2database',name: 'h2'
         testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     }
 
@@ -45,6 +56,6 @@ subprojects {
 
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.0'
+    gradleVersion = '4.3'
 }
 

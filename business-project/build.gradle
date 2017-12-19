@@ -1,0 +1,4 @@
+archivesBaseName='business-project'
+dependencies {
+    compile project(':core')
+}

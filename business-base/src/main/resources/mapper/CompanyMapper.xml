@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mar.dao.CompanyDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="PageResult" type="com.mar.entity.Company">
+		<id column="id" property="id" />
+		<result column="depend_file_id" property="dependFileId" />
+		<result column="unified_identifi" property="unifiedIdentifi" />
+		<result column="name" property="name" />
+		<result column="nature" property="nature" />
+		<result column="registered_assets" property="registeredAssets" />
+		<result column="linkman" property="linkman" />
+		<result column="phone" property="phone" />
+		<result column="is_production" property="belongProduction" />
+		<result column="max_balance_payment" property="maxBalancePayment" />
+		<result column="business_scope" property="businessScope" />
+		<result column="address" property="address" />
+		<result column="annual_capacity" property="annualCapacity" />
+		<result column="remark" property="remark" />
+		<result column="create_user" property="createUser" />
+		<result column="create_time" property="createTime" />
+		<result column="update_user" property="updateUser" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+
+
+	<select id="pageResult" resultMap="PageResult" >
+		SELECT * FROM company
+		<where>
+			<if test="name!=null">
+				name LIKE CONCAT(CONCAT('%', #{name}), '%')
+			</if>
+		</where>
+	</select>
+
+</mapper>
