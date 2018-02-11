@@ -1,4 +1,0 @@
-archivesBaseName='business-base'
-dependencies {
-    compile project(':core')
-}

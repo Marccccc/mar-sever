@@ -1,5 +1,0 @@
-archivesBaseName='web'
-def var = dependencies {
-    compile project(':core')
-    compile project(':business-base')
-}
