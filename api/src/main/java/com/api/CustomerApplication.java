@@ -1,18 +1,18 @@
-package com.cloud;
+package com.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan("com.cloud.controller")
+@ComponentScan("com.api.controller")
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ProducerApplication {
+@EnableFeignClients
+public class CustomerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProducerApplication.class, args);
+        SpringApplication.run(CustomerApplication.class, args);
     }
-
 }
