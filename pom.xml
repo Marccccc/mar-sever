@@ -26,7 +26,7 @@
 
     <modules>
         <module>cloud-registry-service</module>
-        <module>cloud-service-producer</module>
+        <module>cloud-producer-service</module>
         <module>cloud-customer-service-A</module>
         <module>cloud-customer-service-B</module>
         <module>cloud-hystrix-dashboard</module>
