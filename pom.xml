@@ -31,6 +31,7 @@
         <module>cloud-customer-service-B</module>
         <module>cloud-hystrix-dashboard</module>
         <module>cloud-turbine</module>
+        <module>clound-config-server</module>
     </modules>
 
     <dependencyManagement>
