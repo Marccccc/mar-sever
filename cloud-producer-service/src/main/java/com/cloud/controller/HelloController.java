@@ -1,5 +1,6 @@
 package com.cloud.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -9,6 +10,14 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 public class HelloController {
+
+    @Value("${cloud-config.belong}")
+    String value;
+
+    @GetMapping("/config")
+    public String cloudConfig() {
+        return "test " + value + " , now it is";
+    }
 
     @GetMapping("/hello")
     public String producerGetHello(@RequestParam String name) {
