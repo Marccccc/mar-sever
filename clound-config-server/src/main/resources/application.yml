@@ -1,0 +1,26 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Marccccc/spring-cloud-demo
+          search-paths: config-file
+          username: ***
+          password: ***
+    rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+management:
+  security:
+    enabled: false
