@@ -22,5 +22,4 @@ public interface HelloFeignA {
     @RequestMapping(value = "/hello")
     public String getHello(@RequestParam(value = "name") String name);
 
-
 }
