@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * 服务提供应用
+ * 生成服务,启动服务发现
  * @author cc
  */
 @ComponentScan("com.cloud.controller")

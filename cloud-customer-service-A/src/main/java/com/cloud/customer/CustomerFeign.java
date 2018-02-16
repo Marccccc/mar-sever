@@ -1,6 +1,6 @@
 package com.cloud.customer;
 
-import com.cloud.customer.controller.UserHystrixController;
+import com.cloud.customer.controller.CustomerHystrixController;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author cc
  */
-@FeignClient(name = "cloud-service-producer", fallback = UserHystrixController.class)
-public interface HelloFeignA {
+@FeignClient(name = "cloud-service-producer", fallback = CustomerHystrixController.class)
+public interface CustomerFeign {
 
     /**
      * getHello服务提供Feign调用

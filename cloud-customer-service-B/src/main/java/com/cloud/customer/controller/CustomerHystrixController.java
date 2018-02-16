@@ -1,11 +1,10 @@
 package com.cloud.customer.controller;
 
-import com.cloud.customer.HelloFeignB;
+import com.cloud.customer.CustomerFeign;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
-public class UserHystrixController implements HelloFeignB {
+public class CustomerHystrixController implements CustomerFeign {
 
     @Override
     public String postHello(Object user) {

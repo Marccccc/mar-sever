@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: producer-service
+server:
+  port: 8040
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8001/eureka/

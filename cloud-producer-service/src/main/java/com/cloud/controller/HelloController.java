@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author cc
  */
-@RefreshScope
-@RestController
+//@RefreshScope
+//@RestController
 public class HelloController {
 
     @Value("${cloud-config.belong}")

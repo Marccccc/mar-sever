@@ -1,14 +1,14 @@
 package com.cloud.customer.controller;
 
-import com.cloud.customer.HelloFeignB;
+import com.cloud.customer.CustomerFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class UserController {
+public class CustomerController {
 
     @Autowired
-    HelloFeignB helloFeign;
+    CustomerFeign helloFeign;
 
     @PostMapping("/hello")
     public String index(@RequestBody Object user) {
