@@ -1,0 +1,18 @@
+server:
+  port: 8080
+security:
+  user:
+    password: user  # 直接登录时的密码
+  ignored: /
+  sessions: never   # session策略
+  oauth2:
+    sso:
+      loginPath: /login   # 登录路径
+    client:
+      clientId: c2a704d70c91826a1874
+      clientSecret: 27dfbb7cdc18e7a74c6cc69bbe987bb96e59d79a
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+    resource:
+      userInfoUri: https://api.github.com/user
+      preferTokenInfo: false

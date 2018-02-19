@@ -16,7 +16,23 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring-cloud.version>Edgware.SR2</spring-cloud.version>
+        <springboot.version>1.5.10.RELEASE</springboot.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>alibaba-mvn-repository</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <modules>
         <module>cloud-discovery-service</module>
@@ -25,8 +41,9 @@
         <module>cloud-customer-service-B</module>
         <module>cloud-hystrix-dashboard</module>
         <module>cloud-turbine</module>
-        <module>clound-config-server</module>
+        <module>cloud-config-server</module>
         <module>cloud-gateway-zuul</module>
+        <module>cloud-auth-server</module>
     </modules>
 
     <dependencyManagement>
@@ -38,6 +55,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-dependencies</artifactId>
+                    <version>${springboot.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
         </dependencies>
     </dependencyManagement>
 
