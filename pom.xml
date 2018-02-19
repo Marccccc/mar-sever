@@ -26,6 +26,7 @@
         <module>cloud-hystrix-dashboard</module>
         <module>cloud-turbine</module>
         <module>clound-config-server</module>
+        <module>cloud-gateway-zuul</module>
     </modules>
 
     <dependencyManagement>
