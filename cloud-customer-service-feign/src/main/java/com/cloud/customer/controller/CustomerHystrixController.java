@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 public class CustomerHystrixController implements CustomerFeign {
 
     @Override
-    public String postHello(Object user) {
-        return "未调用到PostUser服务";
+    public String getHello(String name) {
+        return "getHello服务异常";
     }
-
+    
 }
